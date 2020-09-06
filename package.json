@@ -1,0 +1,25 @@
+{
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "description": "Corey Cunningham's Developer Portfolio",
+  "main": "index.js",
+  "repository": "https://github.com/ccunnin8/portfolio.git",
+  "author": "corey cunningham",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-livereload": "^4.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "node-sass": "^4.10.0",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "colorette": "^1.2.1"
+  }
+}
