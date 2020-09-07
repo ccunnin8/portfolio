@@ -13,18 +13,22 @@ form {
     label {
         display: flex;
         @include tablet {
-            display: block;
+            flex-direction: column;
             margin-bottom: 10px;
         }
     }
     input:not([type="submit"]) {
         margin-left: auto;
         width: 80%;
+        @include tablet {
+            margin: 0;
+        }
     }
     textarea {
         margin-left: auto;
         @include tablet {
             width: 95%;
+            margin: 0;
         }
     }
     input, textarea {

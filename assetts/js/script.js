@@ -49,6 +49,36 @@ const projectsData = {
         github: "https://github.com/ccunnin8/CapstoneProject",
         link: "https://peaceful-mesa-96455.herokuapp.com"
     },
+    "guess": {
+        title: "Guess",
+        tech: ["python3", "PyGame"],
+        imgs: [{
+            img: "./assetts/photos/guess.png",
+            caption: "Guess is a game played on an 18x18 Go board using standard Go stones.\
+            Players move pieces which are all stones in a 3x3 area attempting to destroy ring formations of the other player. \
+            A winner is determined when a player has no rings. The implementation of the game uses object oriented programming to divide the \
+            game into the board, individual pieces, and the game. The game must be able to determine if a move is valid and analyze the state of the board \
+            after each move to determine if there is a winner."
+        }],
+        desc: "Implementation of the game Guess in python. Playable in the command line by running python GessGame.py or as a GUI by running python GessGameGUI.py",
+        github: "https://github.com/ccunnin8/GessGame"
+    },
+    "freebnb": {
+        title: "FreeBNB",
+        tech: ["python3", "django", "react", "javascript", "tailwindcss", "redis", "websockets"],
+        imgs: [
+            {
+                video: "./assetts/photos/freebnb.mp4",
+                caption: "This application was built with django and django rest framework on the backend. It usese JWT tokens for authentication. \
+                On the front end it uses React (built with create-react-app). Styling was done primarily uses tailwind and a mix of custom css. \
+                Implementation of a realtime chat feature is underway using websockets via Django Channels and Redis. Once finished the project will be hosted \
+                on AWS"
+            }
+        ],
+        desc: "FreeBNB is an 'airbnb' like site that allows users to post listings, book stays, and chat with users.",
+        github: "https://github.com/ccunnin8/FreeBNB"
+    },
+    "assembly": {},
     "collab": {
         title: "Collaborate",
         tech: ["ts", "firebase", "node", "html", "css", "sass", "bulma"],
@@ -240,6 +270,7 @@ contactLink.addEventListener("click", () => {
     portfolio.classList.add("hidden");
 });
 
+
 for (const project of projects) {
     project.addEventListener("click", function() {
         // scroll to top automatically
@@ -315,24 +346,3 @@ for (const b of back) {
         window.scrollTo(0,0);
     });
 }
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-   const name = e.target.name.value;
-   const company = e.target.company.value;
-   const phone = e.target.phone.value;
-   const email = e.target.email.value;
-   const subject = e.target.subject.value;
-   const body = e.target.body.value;
-   const _gotcha = e.target._gotcha.value;
-   const data = {
-       name, company, phone, _replyto: email, _subject: subject, body, _gotcha
-   };
-//    const request = new XMLHttpRequest();
-//    request.open("POST", "https://formspree.io/coreyjjc@me.com", true);
-//    request.setRequestHeader("Content-Type", "application/json");
-//    request.send(data);
-   form.reset();
-   success.classList.remove("hidden");
-   success.classList.add("fade-in");
-});

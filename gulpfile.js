@@ -6,7 +6,7 @@ const reload = require("gulp-livereload");
 const babel = require("gulp-babel");
 const minifyCSS = require("gulp-minify-css");
 const minifyJS = require("gulp-uglify");
-
+const pipeline = require("readable-stream").pipeline
 sass.compiler = require("node-sass");
 reload({ start: true });
 
@@ -46,13 +46,19 @@ gulp.task("watch", () => {
 
 gulp.task("babel", () => {
     return gulp.src("./assetts/js/script.js")
-    .pipe(babel())
+    .pipe(babel({
+        presets: ["@babel/preset-env"]
+    }))
     .pipe(gulp.dest("dist"));
 });
 
 gulp.task("minify", () => {
-    //gulp.src("./assetts/css/main.css").pipe(prefix({ browsers: ["last 2 versions"]})).pipe(minifyCSS()).pipe(gulp.dest("dist"));
-    gulp.src("./assetts/js/script.js").pipe(minifyJS()).pipe(gulp.dest("dist"));
+    return gulp.src("./assetts/js/script.js")
+    .pipe(babel({
+        presets: ["@babel/preset-env"]
+    }))
+    .pipe(minifyJS().on("error", console.error))
+    .pipe(gulp.dest("dist"));
 })
 
 gulp.task("default", ["watch"]);
