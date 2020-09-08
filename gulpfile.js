@@ -34,7 +34,8 @@ gulp.task("prefix", () => {
 gulp.task("minify-css", () => {
     return gulp.src("./assetts/css/*.css")
     .pipe(cleanCss({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./assetts/css"));
+    .pipe(minifyCSS())
+    .pipe(gulp.dest("./dist"));
 })
 
 gulp.task("watch", () => {
